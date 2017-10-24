@@ -485,6 +485,11 @@ func (r *Runtime) getRuntime(ctx context.Context, ns, id string) (*runc.Runc, er
 		}
 	}
 
+	// Sanity check for runc path
+	log.G(ctx).WithFields(logrus.Fields{
+		"cmd": cmd,
+	}).Debug("Getting runtime.")
+
 	return &runc.Runc{
 		Command:      cmd,
 		LogFormat:    runc.JSON,
