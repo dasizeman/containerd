@@ -155,6 +155,7 @@ func (r *Runtime) ID() string {
 
 // Create a new task
 func (r *Runtime) Create(ctx context.Context, id string, opts runtime.CreateOpts) (_ runtime.Task, err error) {
+	log.G(ctx).Info("RUNTIME.CREATE")
 	namespace, err := namespaces.NamespaceRequired(ctx)
 	if err != nil {
 		return nil, err

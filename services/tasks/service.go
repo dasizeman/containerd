@@ -141,6 +141,7 @@ func (s *service) Create(ctx context.Context, r *api.CreateTaskRequest) (*api.Cr
 			Options: m.Options,
 		})
 	}
+	log.G(ctx).Infof("RUNTIME NAME: %s\n", container.Runtime.Name)
 	runtime, err := s.getRuntime(container.Runtime.Name)
 	if err != nil {
 		return nil, err
